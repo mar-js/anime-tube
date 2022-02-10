@@ -6,11 +6,10 @@ import { GET_ANIME_ACTIONS } from '../../redux/actions/getAnime'
 import { InterfaceInitialState, InterfaceAnimesForDay } from '../../tools/interfaces'
 
 import { SwiperSlide } from 'swiper/react'
-import Loader from 'react-loader-spinner'
+import { Skelet } from '../../components/skelet'
 
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
-import { LoaderStyle } from '../main/styles'
 import {
   SwiperStyle,
   SwiperSliderLinkStyle,
@@ -36,16 +35,13 @@ export const SliderAnimesForDay: React.FC = () => {
       loop={ true }
     >
       { fetching || fetching === undefined ? (
-        <LoaderStyle>
-          <Loader
-            type="Puff"
-            color="#9775ff"
-            secondaryColor="#a29bbb"
-            height={ 50 }
-            width={ 55 }
-            timeout={ 3000 }
+        <SwiperSlide>
+          <Skelet
+            repeat={ 1 }
+            width={ 56 }
+            height={ 120 }
           />
-        </LoaderStyle>
+        </SwiperSlide>
       ) : (
         <>
           { animesForDay.map(({ mal_id, title, image_url }) => (

@@ -11,15 +11,18 @@ import { GET_SEARCH_ANIMES_ACTIONS } from '../../redux/actions/getSearchAnimes'
 import { InterfaceGetAnimes, InterfaceInitialState } from '../../tools/interfaces'
 import { FOR_AWAIT } from '../../tools/forAwait'
 
-import { Helmet } from 'react-helmet'
+import { Skelet } from '../../components/skelet'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import Loader from 'react-loader-spinner'
+import { LoaderLo } from '../../components/loader-lo'
 import { Card } from '../../components/card'
 import { Await } from '../../components/await'
 
 import { SectionStyle } from '../../layouts/section/styles'
-import { LoaderStyle } from '../../layouts/main/styles'
-import { AnimeSearchStyle, TitleSearchStyle } from './styles'
+import {
+  AnimeSearchStyle,
+  TitleSearchStyle,
+  SearchResultCenterStyle
+} from './styles'
 
 interface InterfaceGetSearchAnimesUseSelector extends InterfaceInitialState {
   getSearchAnimes: InterfaceGetAnimes[];
@@ -35,12 +38,19 @@ export const SearchResult: React.FC = () => {
   const GET_SEARCH_ANIMES = (page: number, query: string) => DISPATCH(GET_SEARCH_ANIMES_ACTIONS(page, query))
 
   const { fetching, getSearchAnimes }: InterfaceGetSearchAnimesUseSelector = useSelector((state: RootState) => state.stateGetSearchAnimes)
+  const GET_SEARCH_ANIMES_ = getSearchAnimes || []
 
   const HANDLE_SCROLL = async () => {
     setTimeout(() => {
       setPageValue(pageValue + 1)
     }, 1000)
   }
+
+  useEffect((): any => {
+    document.title = 'Search Result | AnimeTube'
+
+    return () => null
+  })
 
   useEffect((): any => {
     GET_SEARCH_ANIMES(pageValue, QUERY_VALUE)
@@ -57,59 +67,42 @@ export const SearchResult: React.FC = () => {
   }, [])
 
   return (
-    <>
-      <Helmet>
-        <title>Search Result | AnimeTube</title>
-        <meta name="description" content="Will show you the result of what you searched for, in this case several animes that match the word or name you typed" />
-      </Helmet>
-      <SectionStyle>
-        <TitleSearchStyle>
-        Search: <AnimeSearchStyle>{ QUERY_VALUE }</AnimeSearchStyle>
-        </TitleSearchStyle>
-        { fetching || fetching === undefined ? (
-          <LoaderStyle>
-            <Loader
-              type="Puff"
-              color="#9775ff"
-              secondaryColor="#a29bbb"
-              height={ 50 }
-              width={ 55 }
-              timeout={ 3000 }
+    <SectionStyle>
+      <TitleSearchStyle>Search: <AnimeSearchStyle>{ QUERY_VALUE }</AnimeSearchStyle></TitleSearchStyle>
+      { fetching && !GET_SEARCH_ANIMES_.length ? (
+        <SearchResultCenterStyle>
+          <Skelet
+            repeat={ 5 }
+            width={ 215 }
+            height={ 320 }
+            borderRadius={ 20 }
+          />
+        </SearchResultCenterStyle>
+      ) : (
+        <InfiniteScroll
+          dataLength={ GET_SEARCH_ANIMES_.length || 5 }
+          hasMore={ true }
+          next={ HANDLE_SCROLL }
+          loader={ <LoaderLo /> }
+          endMessage={ <span>You have seen it all</span> }
+        >
+          { GET_SEARCH_ANIMES_.map(({ mal_id, image_url, title, start_date }) => (
+            <Card
+              key={ mal_id }
+              mal_id={ mal_id }
+              image_url={ image_url }
+              title={ title }
+              start_date={ start_date }
             />
-          </LoaderStyle>
-        ) : (
-          <InfiniteScroll
-            dataLength={ getSearchAnimes.length || 5 }
-            hasMore={ true }
-            next={ HANDLE_SCROLL }
-            loader={ <LoaderStyle>
-              <Loader
-                type="Puff"
-                color="#9775ff"
-                secondaryColor="#a29bbb"
-                height={ 50 }
-                width={ 55 }
-                timeout={ 3000 }
-              />
-            </LoaderStyle> }
-            endMessage={ <span>You have seen it all</span> }
-          >
-            { getSearchAnimes.map(({ mal_id, image_url, title, start_date }) => (
-              <Card
-                key={ mal_id }
-                mal_id={ mal_id }
-                image_url={ image_url }
-                title={ title }
-                start_date={ start_date }
-              />
-            )) }
-          </InfiniteScroll>
-        ) }
+          )) }
+        </InfiniteScroll>
+      ) }
+      { fetching && GET_SEARCH_ANIMES_.length > 0 && (
         <Await
           fetching={ fetching }
-          length={ FOR_AWAIT(getSearchAnimes) }
+          length={ FOR_AWAIT(GET_SEARCH_ANIMES_) }
         />
-      </SectionStyle>
-    </>
+      ) }
+    </SectionStyle>
   )
 }

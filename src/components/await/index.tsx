@@ -6,7 +6,7 @@ import { AwaitStyle } from './styles'
 
 export const Await: React.FC<InterfaceAwait> = ({ fetching, length }) => (
   <>
-    { fetching && length ? (
+    { fetching && length > 0 ? (
       <AwaitStyle src={ catWait } alt="Cat wait" />
     ) : null }
   </>

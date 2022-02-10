@@ -5,14 +5,13 @@ import { RootState } from '../../redux/reducers'
 import { GET_ANIMES_ACTIONS } from '../../redux/actions/getAnimes'
 
 import { InterfaceGetAnimes, InterfaceInitialState } from '../../tools/interfaces'
-import { FOR_AWAIT } from '../../tools/forAwait'
 
+import { Skelet } from '../../components/skelet'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import Loader from 'react-loader-spinner'
+import { LoaderLo } from '../../components/loader-lo'
 import { Card } from '../../components/card'
-import { Await } from '../../components/await'
 
-import { MainStyle, LoaderStyle } from './styles'
+import { MainStyle } from './styles'
 
 interface InterfaceGetAnimesUseSelector extends InterfaceInitialState {
   getAnimes: InterfaceGetAnimes[];
@@ -25,6 +24,7 @@ export const Main: React.FC = () => {
   const GET_ANIMES = (page: number) => DISPATCH(GET_ANIMES_ACTIONS(page))
 
   const { fetching, getAnimes }: InterfaceGetAnimesUseSelector = useSelector((state: RootState) => state.stateGetAnimes)
+  const GET_ANIMES_ = getAnimes || []
 
   const HANDLE_SCROLL = async () => {
     setTimeout(() => {
@@ -40,35 +40,22 @@ export const Main: React.FC = () => {
 
   return (
     <MainStyle>
-      { fetching || fetching === undefined ? (
-        <LoaderStyle>
-          <Loader
-            type="Puff"
-            color="#9775ff"
-            secondaryColor="#a29bbb"
-            height={ 50 }
-            width={ 55 }
-            timeout={ 3000 }
-          />
-        </LoaderStyle>
+      { fetching && !GET_ANIMES_.length ? (
+        <Skelet
+          repeat={ 2 }
+          width={ 215 }
+          height={ 320 }
+          borderRadius={ 20 }
+        />
       ) : (
         <InfiniteScroll
-          dataLength={ getAnimes.length || 3 }
+          dataLength={ GET_ANIMES_.length || 3 }
           hasMore={ true }
           next={ HANDLE_SCROLL }
-          loader={ <LoaderStyle>
-            <Loader
-              type="Puff"
-              color="#9775ff"
-              secondaryColor="#a29bbb"
-              height={ 50 }
-              width={ 55 }
-              timeout={ 3000 }
-            />
-          </LoaderStyle> }
+          loader={ <LoaderLo /> }
           endMessage={ <span>You have seen it all</span> }
         >
-          { getAnimes.map(({ mal_id, image_url, title, start_date }) => (
+          { GET_ANIMES_.map(({ mal_id, image_url, title, start_date }) => (
             <Card
               key={ mal_id }
               mal_id={ mal_id }
@@ -79,10 +66,6 @@ export const Main: React.FC = () => {
           )) }
         </InfiniteScroll>
       ) }
-      <Await
-        fetching={ fetching }
-        length={ FOR_AWAIT(getAnimes) }
-      />
     </MainStyle>
   )
 }

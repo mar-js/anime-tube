@@ -10,8 +10,3 @@ export const MainStyle = styled.main`
   margin-top: 22rem;
   padding: 1.5rem 1rem;
 `
-
-export const LoaderStyle = styled.div`
-  margin: 1rem 0;
-  text-align: center;
-`

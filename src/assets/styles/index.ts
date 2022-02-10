@@ -50,6 +50,16 @@ export const GlobalStyles = createGlobalStyle`
         text-decoration: none;
       }
 
+      .swiper-container {
+        .swiper-wrapper {
+          .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+
       .infinite-scroll-component__outerdiv,
       .infinite-scroll-component {
         width: 100%;

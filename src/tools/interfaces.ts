@@ -35,3 +35,11 @@ export interface InterfaceAwait {
   fetching: boolean;
   length: number;
 }
+
+export interface InterfaceSkelet {
+  inline?: boolean;
+  repeat: number;
+  width: number;
+  height: number;
+  borderRadius?: number;
+}

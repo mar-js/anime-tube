@@ -6,7 +6,6 @@ import { RESET_ANIMES } from '../../redux/types/getAnimes'
 import { RESET_ANIME } from '../../redux/types/getAnime'
 import { RESET_SEARCH_ANIMES } from '../../redux/types/getSearchAnimes'
 
-import { Helmet } from 'react-helmet'
 import { Section } from '../../layouts/section'
 import {
   IoLogoGithub,
@@ -26,6 +25,12 @@ export const Contact: React.FC = () => {
   const DISPATCH = useDispatch()
 
   useEffect((): any => {
+    document.title = 'Contact | AnimeTube'
+
+    return () => null
+  }, [])
+
+  useEffect((): any => {
     DISPATCH({ type: RESET_ANIMES_FOR_DAY })
     DISPATCH({ type: RESET_ANIMES })
     DISPATCH({ type: RESET_ANIME })
@@ -35,36 +40,30 @@ export const Contact: React.FC = () => {
   }, [])
 
   return (
-    <>
-      <Helmet>
-        <title>Contact | AnimeTube</title>
-        <meta name="description" content="Methods to contact me" />
-      </Helmet>
-      <Section>
-        <TitleStyle>Touch one icon!</TitleStyle>
-        <ListStyle>
-          <ItemStyle>
-            <LinkStyle href="https://github.com/mar-js" target="_blank">
-              <IoLogoGithub />
-            </LinkStyle>
-          </ItemStyle>
-          <ItemStyle>
-            <LinkStyle href="https://gitlab.com/mar-js" target="_blank">
-              <IoLogoGitlab />
-            </LinkStyle>
-          </ItemStyle>
-          <ItemStyle>
-            <LinkStyle href="mailto:maguera37@gmail.com" target="_blank">
-              <IoMail />
-            </LinkStyle>
-          </ItemStyle>
-          <ItemStyle>
-            <LinkStyle href="https://linkedin.com/in/mar-js" target="_blank">
-              <IoLogoLinkedin />
-            </LinkStyle>
-          </ItemStyle>
-        </ListStyle>
-      </Section>
-    </>
+    <Section>
+      <TitleStyle>Touch one icon!</TitleStyle>
+      <ListStyle>
+        <ItemStyle>
+          <LinkStyle href="https://github.com/mar-js" target="_blank">
+            <IoLogoGithub />
+          </LinkStyle>
+        </ItemStyle>
+        <ItemStyle>
+          <LinkStyle href="https://gitlab.com/mar-js" target="_blank">
+            <IoLogoGitlab />
+          </LinkStyle>
+        </ItemStyle>
+        <ItemStyle>
+          <LinkStyle href="mailto:maguera37@gmail.com" target="_blank">
+            <IoMail />
+          </LinkStyle>
+        </ItemStyle>
+        <ItemStyle>
+          <LinkStyle href="https://linkedin.com/in/mar-js" target="_blank">
+            <IoLogoLinkedin />
+          </LinkStyle>
+        </ItemStyle>
+      </ListStyle>
+    </Section>
   )
 }

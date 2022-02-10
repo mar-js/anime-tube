@@ -10,3 +10,7 @@ export const AnimeSearchStyle = styled.span`
   font-size: 1.6rem;
   color: var(--color-violet-grey);
 `
+
+export const SearchResultCenterStyle = styled.div`
+  text-align: center;
+`
