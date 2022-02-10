@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { GlobalStyles } from './assets/styles'
+import {
+  BrowserRouter,
+  Switch,
+  Route
+} from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { Header } from './layouts/header'
+import { Home } from './pages/home'
+import { AboutApp } from './pages/about-app'
+import { Contact } from './pages/contact'
+import { Anime } from './pages/anime'
+import { SearchResult } from './pages/search_result'
 
-export default App;
+export const App: React.FC = () => (
+  <>
+    <GlobalStyles />
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={ Home } />
+        <Route exact path="/about-app" component={ AboutApp } />
+        <Route exact path="/contact" component={ Contact } />
+        <Route exact path="/anime/:id" component={ Anime } />
+        <Route exact path="/search/" component={ SearchResult } />
+      </Switch>
+    </BrowserRouter>
+  </>
+)
