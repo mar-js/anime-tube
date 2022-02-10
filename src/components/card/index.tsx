@@ -5,7 +5,6 @@ import { GET_ANIME_ACTIONS } from '../../redux/actions/getAnime'
 import { InterfaceGetAnimes } from '../../tools/interfaces'
 
 import 'react-lazy-load-image-component/src/effects/blur.css'
-
 import {
   CardStyle,
   CardImageStyle,

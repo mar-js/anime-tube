@@ -6,6 +6,7 @@ import { GET_ANIMES_FOR_DAY_ACTIONS } from '../../redux/actions/getAnimesForDay'
 import { RESET_ANIME } from '../../redux/types/getAnime'
 import { RESET_SEARCH_ANIMES } from '../../redux/types/getSearchAnimes'
 
+import { Helmet } from 'react-helmet'
 import { SliderAnimesForDay } from '../../layouts/slider-animes-for-day'
 import { Main } from '../../layouts/main'
 
@@ -23,6 +24,10 @@ export const Home: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Home | AnimeTube</title>
+        <meta name="description" content="You will see the animes that happen today (in japan) and the most popular animes" />
+      </Helmet>
       <SliderAnimesForDay />
       <Main />
     </>

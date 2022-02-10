@@ -10,14 +10,12 @@ import Loader from 'react-loader-spinner'
 
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
-
 import { LoaderStyle } from '../main/styles'
 import {
   SwiperStyle,
   SwiperSliderLinkStyle,
   SwiperSliderImgStyle
 } from './styles'
-
 import './styles.css'
 
 interface InterfaceUseSelector extends InterfaceInitialState {

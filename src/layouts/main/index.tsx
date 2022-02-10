@@ -5,13 +5,12 @@ import { RootState } from '../../redux/reducers'
 import { GET_ANIMES_ACTIONS } from '../../redux/actions/getAnimes'
 
 import { InterfaceGetAnimes, InterfaceInitialState } from '../../tools/interfaces'
+import { FOR_AWAIT } from '../../tools/forAwait'
 
 import InfiniteScroll from 'react-infinite-scroll-component'
 import Loader from 'react-loader-spinner'
 import { Card } from '../../components/card'
 import { Await } from '../../components/await'
-
-import { FOR_AWAIT } from '../../tools/forAwait'
 
 import { MainStyle, LoaderStyle } from './styles'
 
