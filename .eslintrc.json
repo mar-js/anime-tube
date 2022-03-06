@@ -8,7 +8,6 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "standard",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -35,13 +34,27 @@
     }
   },
   "rules": {
-    "@typescript-eslint/no-explicit-any": 0,
-    "array-element-newline": [2, { "multiline": true, "minItems": 3 }],
-    "array-bracket-newline": [2, { "multiline": true, "minItems": 3 }],
+    "array-element-newline": [
+      2,
+      {
+        "multiline": true,
+        "minItems": 3
+      }
+    ],
+    "array-bracket-newline": [
+      2,
+      {
+        "multiline": true,
+        "minItems": 3
+      }
+    ],
     "array-bracket-spacing": [
       2,
       "always",
-      { "objectsInArrays": false, "arraysInArrays": false }
+      {
+        "objectsInArrays": true,
+        "arraysInArrays": true
+      }
     ],
     "arrow-body-style": 0,
     "block-scoped-var": 2,
@@ -53,7 +66,13 @@
       }
     ],
     "camelcase": 0,
-    "comma-dangle": "error",
+    "comma-dangle": [2, {
+      "arrays": "never",
+      "objects": "never",
+      "imports": "never",
+      "exports": "never",
+      "functions": "never"
+    }],
     "comma-spacing": [
       2,
       {
@@ -212,9 +231,26 @@
     "no-void": 0,
     "no-warning-comments": 0,
     "no-with": 2,
-    "object-curly-newline": [0, { "multiline": true, "minProperties": 3 }],
+    "object-curly-newline": [2, {
+      "ObjectExpression": {
+        "multiline": true,
+        "minProperties": 4
+      },
+      "ObjectPattern": {
+        "multiline": true,
+        "minProperties": 4
+      },
+      "ImportDeclaration":{
+        "multiline": true,
+        "minProperties": 4
+      },
+      "ExportDeclaration": {
+        "multiline": true,
+        "minProperties": 4
+      }
+    } ],
     "object-curly-spacing": [2, "always"],
-    "object-property-newline": [2, {"allowAllPropertiesOnSameLine": false }],
+    "object-property-newline": 2,
     "one-var": 0,
     "operator-assignment": 0,
     "operator-linebreak": [2, "after"],
@@ -227,38 +263,21 @@
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-noninteractive-element-interactions": 0,
     "jsx-a11y/media-has-caption": 0,
-    "react/function-component-definition": [2, {
-      "namedComponents": "arrow-function",
-      "unnamedComponents": "arrow-function"
-    }],
-    "react/no-array-index-key": 2,
-    "react/no-did-mount-set-state": 2,
-    "react/no-did-update-set-state": 2,
-    "react/no-multi-comp": 0,
-    "react/no-unknown-property": 2,
-    "react/button-has-type": 2,
     "react/display-name": 0,
-    "react/prop-types": 0,
-    "react/forbid-prop-types": 0,
-    "react/prefer-stateless-function": 0,
-    "react/require-default-props": 0,
-    "react/react-in-jsx-scope": 0,
-    "react/self-closing-comp": 2,
-    "react/sort-comp": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "react/jsx-boolean-value": 0,
     "react/jsx-closing-bracket-location": 2,
     "react/jsx-curly-spacing": [
       2,
-      { "when": "always", "allowMultiline": false, "children": true }
-    ],
-    "react/jsx-indent-props": [2, 2],
-    "react/jsx-tag-spacing": [
-      2,
       {
-        "beforeSelfClosing": "always"
+        "when": "always",
+        "allowMultiline": false,
+        "children": true
       }
     ],
+    "react/jsx-indent-props": [2, 2],
+    "react/jsx-tag-spacing": [2, {
+      "beforeSelfClosing": "always"
+    }],
     "react/jsx-no-bind": [
       2,
       {
@@ -270,6 +289,18 @@
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
     "react/jsx-wrap-multilines": 2,
+    "react/jsx-filename-extension": 0,
+    "react/no-did-mount-set-state": 2,
+    "react/no-did-update-set-state": 2,
+    "react/no-multi-comp": 0,
+    "react/no-unknown-property": 2,
+    "react/prop-types": 0,
+    "react/forbid-prop-types": 0,
+    "react/prefer-stateless-function": 0,
+    "react/require-default-props": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/self-closing-comp": 2,
+    "react/sort-comp": 0,
     "sort-vars": 0,
     "space-before-blocks": [2, "always"],
     "space-before-function-paren": [
@@ -281,15 +312,15 @@
     ],
     "space-in-parens": [2, "never"],
     "space-infix-ops": 2,
+    "keyword-spacing": 2,
     "space-unary-ops": [
       2,
       {
         "words": true,
         "nonwords": false
-    }
-  ],
+      }
+    ],
     "spaced-comment": [0, "always"],
-    "keyword-spacing": 2,
     "strict": 0,
     "semi-style": [2, "last"],
     "semi": [2, "never"],
@@ -299,6 +330,8 @@
     "vars-on-top": 2,
     "wrap-iife": [2, "any"],
     "wrap-regex": 0,
-    "yoda": [2, "never"]
+    "yoda": [2, "never"],
+    "@typescript-eslint/no-explicit-any": "off",
+    "react-hooks/exhaustive-deps": 0
   }
 }

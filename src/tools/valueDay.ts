@@ -1,6 +1,6 @@
 export let date = ''
 
-const DATE = new Date().getDay()
+const DATE: number = new Date().getDay()
 
 switch (true) {
   case DATE === 0:

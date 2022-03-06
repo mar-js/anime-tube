@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { MdSearch, MdClose } from 'react-icons/md'
 
 export const SearchStyle = styled.div`
-  grid-area: 1 / 2 / -1 / 3;
   display: flex;
   justify-content: flex-end;
   align-items: center;

@@ -36,10 +36,9 @@ export interface InterfaceAwait {
   length: number;
 }
 
-export interface InterfaceSkelet {
+export interface InterfaceEsqueleto {
+  width?: number;
+  height?: number;
   inline?: boolean;
-  repeat: number;
-  width: number;
-  height: number;
   borderRadius?: number;
 }

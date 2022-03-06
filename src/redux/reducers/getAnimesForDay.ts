@@ -38,8 +38,6 @@ export const REDUCER_GET_ANIMES_FOR_DAY = (state: InterfaceReducerAnimesForDay, 
         error: action.payload
       }
     default:
-      return {
-        ...state
-      }
+      return { ...state }
   }
 }

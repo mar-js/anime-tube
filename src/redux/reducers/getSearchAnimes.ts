@@ -41,8 +41,6 @@ export const REDUCER_GET_SEARCH_ANIMES = (state: InterfaceReducerGetSearchAnimes
         error: action.payload
       }
     default:
-      return {
-        ...state
-      }
+      return { ...state }
   }
 }

@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 export const CardStyle = styled(Link)`
-  width: 80%;
+  width: 100%;
   height: 32rem;
   position: relative;
   display: inline-block;
-  margin-bottom: 2rem;
   color: inherit;
 `
 

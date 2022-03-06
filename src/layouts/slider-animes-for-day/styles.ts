@@ -7,15 +7,10 @@ export const SwiperStyle = styled(Swiper)`
   grid-area: 2 / 1 / -1 / -1;
   width: 100%;
   height: 15rem;
-  position: fixed;
-  top: 5rem;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  padding: 1.2rem;
-  background-color: var(--color-black-opacity-secondary);
+  padding: 1rem 0;
+  margin-top: 5rem;
+  background-color: var(--color-black);
   overflow: hidden;
-  box-shadow: 0 0 .1rem var(--color-white);
 `
 
 export const SwiperSliderLinkStyle = styled(Link)`
