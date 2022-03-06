@@ -38,8 +38,6 @@ export const REDUCER_GET_ANIME = (state: InterfaceReducerGetAnime, action: GetAn
         error: action.payload
       }
     default:
-      return {
-        ...state
-      }
+      return { ...state }
   }
 }

@@ -7,9 +7,10 @@ export const HeaderStyle = styled.header`
   left: 0;
   right: 0;
   z-index: 100;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: repeat(1, 1fr);
-  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
   background-color: var(--color-black);
+  border-bottom: .1rem solid var(--color-violet-opacity);
 `

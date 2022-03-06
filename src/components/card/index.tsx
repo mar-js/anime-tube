@@ -13,7 +13,12 @@ import {
   CardBottomDateStyle
 } from './styles'
 
-export const Card: React.FC<InterfaceGetAnimes> = ({ mal_id, image_url, title, start_date }) => {
+export const Card: React.FC<InterfaceGetAnimes> = ({
+  mal_id,
+  image_url,
+  title,
+  start_date
+}) => {
   const DISPATCH = useDispatch()
   const GET_ANIME = (id: number) => DISPATCH(GET_ANIME_ACTIONS(id))
 

@@ -8,13 +8,14 @@ export const TitleStyle = styled.h2`
 
 export const SubtitleStyle = styled.h3`
   margin-bottom: 2rem;;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--color-violet);
+  text-align: center;
 `
 
 export const ListStyle = styled.ul`
   padding: 0 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 `
 
 export const ItemStyle = styled.li`
@@ -23,8 +24,8 @@ export const ItemStyle = styled.li`
 
 export const TextStyle = styled.p`
   margin-bottom: 1rem;
-  font-size: 1.4rem;
-  color: (--color-black-opacity-primary);
+  font-size: 1.5rem;
+  color: var(--color-gray);
 `
 
 export const ImageStyle = styled.img`

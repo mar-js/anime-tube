@@ -14,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
     --color-black-opacity-primary: #21202633;
     --color-black-opacity-secondary: #212026e6;
     --color-white: #f1f1f1;
+    --color-gray: #c4c4c4;
   }
 
   *,
@@ -60,11 +61,11 @@ export const GlobalStyles = createGlobalStyle`
         }
       }
 
-      .infinite-scroll-component__outerdiv,
-      .infinite-scroll-component {
-        width: 100%;
-        height: 100%;
-        text-align: center;
+      .infinite-scroll-component__outerdiv {
+        .infinite-scroll-component {
+          width: 100%;
+          height: 100%;
+        }
       }
 
       .lazy-load-image-background.blur.lazy-load-image-loaded {

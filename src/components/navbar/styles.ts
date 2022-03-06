@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 export const NavBarStyle = styled.nav`
-  grid-area: 1 / 3 / 2 / -1;
   display: flex;
   justify-content: center;
   align-items: center;

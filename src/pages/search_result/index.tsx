@@ -10,19 +10,19 @@ import { GET_SEARCH_ANIMES_ACTIONS } from '../../redux/actions/getSearchAnimes'
 
 import { InterfaceGetAnimes, InterfaceInitialState } from '../../tools/interfaces'
 import { FOR_AWAIT } from '../../tools/forAwait'
+import { ARR_SKELETON } from '../../tools/arrSkeleton'
 
-import { Skelet } from '../../components/skelet'
+import { v4 } from 'uuid'
+
+import { Esqueleto } from '../../components/esqueleto'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { LoaderLo } from '../../components/loader-lo'
+import { GridItem } from '../../components/grid-item'
 import { Card } from '../../components/card'
 import { Await } from '../../components/await'
 
 import { SectionStyle } from '../../layouts/section/styles'
-import {
-  AnimeSearchStyle,
-  TitleSearchStyle,
-  SearchResultCenterStyle
-} from './styles'
+import { AnimeSearchStyle, TitleSearchStyle } from './styles'
 
 interface InterfaceGetSearchAnimesUseSelector extends InterfaceInitialState {
   getSearchAnimes: InterfaceGetAnimes[];
@@ -40,7 +40,7 @@ export const SearchResult: React.FC = () => {
   const { fetching, getSearchAnimes }: InterfaceGetSearchAnimesUseSelector = useSelector((state: RootState) => state.stateGetSearchAnimes)
   const GET_SEARCH_ANIMES_ = getSearchAnimes || []
 
-  const HANDLE_SCROLL = async () => {
+  const HANDLE_SCROLL = () => {
     setTimeout(() => {
       setPageValue(pageValue + 1)
     }, 1000)
@@ -69,32 +69,40 @@ export const SearchResult: React.FC = () => {
   return (
     <SectionStyle>
       <TitleSearchStyle>Search: <AnimeSearchStyle>{ QUERY_VALUE }</AnimeSearchStyle></TitleSearchStyle>
-      { fetching && !GET_SEARCH_ANIMES_.length ? (
-        <SearchResultCenterStyle>
-          <Skelet
-            repeat={ 5 }
-            width={ 215 }
-            height={ 320 }
-            borderRadius={ 20 }
-          />
-        </SearchResultCenterStyle>
+      { fetching && GET_SEARCH_ANIMES_.length === 0 ? (
+        <GridItem>
+          { ARR_SKELETON.map(v => (
+            <Esqueleto
+              key={ v4() + v }
+              height={ 320 }
+              borderRadius={ 20 }
+            />
+          )) }
+        </GridItem>
       ) : (
         <InfiniteScroll
-          dataLength={ GET_SEARCH_ANIMES_.length || 5 }
+          dataLength={ GET_SEARCH_ANIMES_.length }
           hasMore={ true }
           next={ HANDLE_SCROLL }
           loader={ <LoaderLo /> }
           endMessage={ <span>You have seen it all</span> }
         >
-          { GET_SEARCH_ANIMES_.map(({ mal_id, image_url, title, start_date }) => (
-            <Card
-              key={ mal_id }
-              mal_id={ mal_id }
-              image_url={ image_url }
-              title={ title }
-              start_date={ start_date }
-            />
-          )) }
+          <GridItem>
+            { GET_SEARCH_ANIMES_.map(({
+              mal_id,
+              image_url,
+              title,
+              start_date
+            }) => (
+              <Card
+                key={ v4() + mal_id }
+                mal_id={ mal_id }
+                image_url={ image_url }
+                title={ title }
+                start_date={ start_date }
+              />
+            )) }
+          </GridItem>
         </InfiniteScroll>
       ) }
       { fetching && GET_SEARCH_ANIMES_.length > 0 && (

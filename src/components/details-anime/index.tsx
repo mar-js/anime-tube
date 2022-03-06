@@ -14,7 +14,15 @@ import {
   BoxInfoAnclaStyle
 } from './styles'
 
-export const DetailsAnime: React.FC<InterfaceGetAnime> = ({ mal_id, image_url, trailer_url, title, title_japanese, episodes, synopsis }) => {
+export const DetailsAnime: React.FC<InterfaceGetAnime> = ({
+  mal_id,
+  image_url,
+  trailer_url,
+  title,
+  title_japanese,
+  episodes,
+  synopsis
+}) => {
   const [ viewAnime, setViewAnime ] = useState<string>('')
 
   const URL_ANIME_FLV = 'https://www3.animeflv.net/anime/'
@@ -34,7 +42,7 @@ export const DetailsAnime: React.FC<InterfaceGetAnime> = ({ mal_id, image_url, t
           src={ trailer_url }
           style={ {
             width: 100 + '%',
-            height: 30 + 'rem'
+            height: 60 + 'vh'
           } }
           frameBorder="0"
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
