@@ -5,4 +5,5 @@ export const SectionStyle = styled.section`
   height: auto;
   margin-top: 5rem;
   padding: 1.5rem 1rem;
+  text-align: center;
 `

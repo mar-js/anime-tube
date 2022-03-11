@@ -1,6 +1,7 @@
+
+import { composeWithDevTools } from 'redux-devtools-extension'
 import {
   createStore,
-  compose,
   applyMiddleware,
   Store,
   AnyAction
@@ -8,15 +9,40 @@ import {
 import thunk from 'redux-thunk'
 
 import { ROOT_REDUCERS } from './reducers'
+import { useMemo } from 'react'
 
-const COMPOSE_ENHANCERS = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const COMPOSE_ENHANCERS = composeWithDevTools(applyMiddleware(thunk))
+let store: any = null
 
-export const STORE = (): Store<any, AnyAction> => {
+export const STORE = (initialState: any): Store<any, AnyAction> => {
   const STORE: any = createStore(
     ROOT_REDUCERS,
-    {},
-    COMPOSE_ENHANCERS(applyMiddleware(thunk))
+    initialState,
+    COMPOSE_ENHANCERS
   )
 
   return STORE
 }
+
+export const INITIALIZE_STORE = (preloadedState: any) => {
+  let initialStore = store ?? STORE(preloadedState)
+
+  if (preloadedState && store) {
+    initialStore = STORE({
+      ...store.getState(),
+      ...preloadedState
+    })
+
+    store = undefined
+  }
+
+  if (typeof window === 'undefined') {
+    return initialStore
+  }
+
+  if (!store) store = initialStore
+
+  return initialStore
+}
+
+export const useStore = (initialState: any) => useMemo(() => INITIALIZE_STORE(initialState), [ initialState ])

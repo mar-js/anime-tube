@@ -6,6 +6,7 @@ import { GET_ANIMES_ACTIONS } from '../../redux/actions/getAnimes'
 
 import { InterfaceGetAnimes, InterfaceInitialState } from '../../tools/interfaces'
 import { ARR_SKELETON } from '../../tools/arrSkeleton'
+import { FOR_AWAIT } from '../../tools/forAwait'
 
 import { v4 } from 'uuid'
 
@@ -14,6 +15,7 @@ import { Esqueleto } from '../../components/esqueleto'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { LoaderLo } from '../../components/loader-lo'
 import { Card } from '../../components/card'
+import { Await } from '../../components/await'
 
 import { MainStyle } from './styles'
 
@@ -79,6 +81,12 @@ export const Main: React.FC = () => {
             )) }
           </GridItem>
         </InfiniteScroll>
+      ) }
+      { fetching && GET_ANIMES_.length > 0 && (
+        <Await
+          fetching={ fetching }
+          length={ FOR_AWAIT(GET_ANIMES_) }
+        />
       ) }
     </MainStyle>
   )

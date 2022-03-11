@@ -18,7 +18,7 @@ export const GET_ANIMES_ACTIONS = (page = 1) => async (dispatch: Dispatch): Prom
 
     return dispatch({
       type: GET_ANIMES_SUCCESS,
-      payload: [ ...top.slice(0, 20) ]
+      payload: [ ...top.slice(0, 18) ]
     })
   } catch (error: string | any) {
     console.error('ERROR IN GET ANIMES ACTIONS: ', error.message)

@@ -9,7 +9,7 @@ import {
 } from '../types/animesForDay'
 
 interface InterfaceReducerAnimesForDay extends InterfaceInitialState {
-  animesForDay: InterfaceAnimesForDay[];
+  getAnimesForDay: InterfaceAnimesForDay[];
 }
 
 export const REDUCER_GET_ANIMES_FOR_DAY = (state: InterfaceReducerAnimesForDay, action: AnimesForDayActionsTypes): InterfaceReducerAnimesForDay => {
@@ -23,13 +23,13 @@ export const REDUCER_GET_ANIMES_FOR_DAY = (state: InterfaceReducerAnimesForDay, 
       return {
         ...state,
         fetching: false,
-        animesForDay: []
+        getAnimesForDay: []
       }
     case GET_ANIMES_FOR_DAY_SUCCESS:
       return {
         ...state,
         fetching: false,
-        animesForDay: [ ...action.payload ]
+        getAnimesForDay: [ ...action.payload ]
       }
     case GET_ANIMES_FOR_DAY_ERROR:
       return {

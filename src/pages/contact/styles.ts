@@ -7,7 +7,10 @@ export const TitleStyle = styled.h2`
 `
 
 export const ListStyle = styled.ul`
-  text-align: center
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
 `
 
 export const ItemStyle = styled.li`

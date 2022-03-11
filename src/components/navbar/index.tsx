@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import {
   NavBarStyle,
   ListStyle,
@@ -9,10 +11,14 @@ export const NavBar: React.FC = () => (
   <NavBarStyle>
     <ListStyle>
       <ItemStyle>
-        <NavLinkStyle to="/about-app" title="About App">About app</NavLinkStyle>
+        <Link href="/about-app">
+          <NavLinkStyle title="About App">About app</NavLinkStyle>
+        </Link>
       </ItemStyle>
       <ItemStyle>
-        <NavLinkStyle to="/contact" title="Contact">Contact</NavLinkStyle>
+        <Link href="/contact">
+          <NavLinkStyle title="Contact">Contact</NavLinkStyle>
+        </Link>
       </ItemStyle>
     </ListStyle>
   </NavBarStyle>

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { Link } from 'react-router-dom'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import Image from 'next/image'
 
-export const CardStyle = styled(Link)`
+export const CardStyle = styled.div`
+  cursor: pointer;
   width: 100%;
   height: 32rem;
   position: relative;
@@ -11,7 +11,7 @@ export const CardStyle = styled(Link)`
   color: inherit;
 `
 
-export const CardImageStyle = styled(LazyLoadImage)`
+export const CardImageStyle = styled(Image)`
   width: 100%;
   height: 100%;
   position: absolute;

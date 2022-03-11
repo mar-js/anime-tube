@@ -13,6 +13,13 @@ export const SubtitleStyle = styled.h3`
   text-align: center;
 `
 
+export const FlexStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
 export const ListStyle = styled.ul`
   padding: 0 2rem;
   margin-bottom: 4rem;
@@ -26,9 +33,4 @@ export const TextStyle = styled.p`
   margin-bottom: 1rem;
   font-size: 1.5rem;
   color: var(--color-gray);
-`
-
-export const ImageStyle = styled.img`
-  display: block;
-  margin: 0 auto;
 `

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useRouter } from 'next/router'
 
 import { RESET_SEARCH_ANIMES } from '../../redux/types/getSearchAnimes'
 
@@ -16,7 +16,7 @@ import {
 export const Search: React.FC = () => {
   const [ isSearch, setIsSearch ] = useState<boolean>(false)
   const [ isSearchText, setIsSearchText ] = useState<string>('')
-  const HISTORY = useHistory()
+  const HISTORY = useRouter()
 
   const DISPATCH = useDispatch()
 
@@ -38,7 +38,7 @@ export const Search: React.FC = () => {
 
     document.body.style.overflow = ''
 
-    HISTORY.push(`/search?query=${isSearchText}`)
+    HISTORY.push(`/search?q=${isSearchText}`)
   }
 
   const INPUT = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
