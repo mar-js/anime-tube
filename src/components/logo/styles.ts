@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 import { MdPlayArrow } from 'react-icons/md'
-import { Link } from 'react-router-dom'
 
-export const ContainerLogoStyle = styled(Link)`
+export const ContainerLogoStyle = styled.div`
   cursor: pointer;
   display: flex;
   justify-content: center;

@@ -15,7 +15,7 @@ export const GET_SEARCH_ANIMES_ACTIONS = (page: number, query: string) => async 
   })
 
   try {
-    const RESPONSE = await fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&page=${page}&order_by=title&sort=asc&limit=20`)
+    const RESPONSE = await fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&page=${page}&order_by=title&sort=asc&limit=18`)
     const DATA = await RESPONSE.json()
     const { results }: { results: InterfaceGetAnimes[] } = DATA
 

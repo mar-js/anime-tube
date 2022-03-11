@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import {
   ContainerLogoStyle,
   LogoImageStyle,
@@ -5,8 +7,10 @@ import {
 } from './styles'
 
 export const Logo: React.FC = () => (
-  <ContainerLogoStyle to="/" title="AnimeTube" >
-    <LogoImageStyle />
-    <LogoStyle>アニメチューブ</LogoStyle>
-  </ContainerLogoStyle>
+  <Link href="/" passHref>
+    <ContainerLogoStyle title="AnimeTube">
+      <LogoImageStyle />
+      <LogoStyle>アニメチューブ</LogoStyle>
+    </ContainerLogoStyle>
+  </Link>
 )

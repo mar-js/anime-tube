@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import { Swiper } from 'swiper/react'
-import { Link } from 'react-router-dom'
 
 export const SwiperStyle = styled(Swiper)`
   grid-area: 2 / 1 / -1 / -1;
@@ -13,8 +12,9 @@ export const SwiperStyle = styled(Swiper)`
   overflow: hidden;
 `
 
-export const SwiperSliderLinkStyle = styled(Link)`
-  width: 80%;
+export const SwiperSliderLinkStyle = styled.a`
+  cursor: pointer;
+  width: 100%;
   height: 100%;
   display: inline-block;
   margin-left: 1rem;

@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import { NavLink } from 'react-router-dom'
-
 export const NavBarStyle = styled.nav`
   display: flex;
   justify-content: center;
@@ -19,7 +17,8 @@ export const ItemStyle = styled.li`
   margin-left: 1rem;
 `
 
-export const NavLinkStyle = styled(NavLink)`
+export const NavLinkStyle = styled.a`
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;

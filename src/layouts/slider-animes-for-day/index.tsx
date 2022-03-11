@@ -8,53 +8,51 @@ import { ARR_SKELETON } from '../../tools/arrSkeleton'
 
 import { v4 } from 'uuid'
 
+import Link from 'next/link'
 import { SwiperSlide } from 'swiper/react'
 import { Esqueleto } from '../../components/esqueleto'
 
-import 'swiper/swiper-bundle.min.css'
-import 'swiper/swiper.min.css'
 import {
   SwiperStyle,
   SwiperSliderLinkStyle,
   SwiperSliderImgStyle
 } from './styles'
-import './styles.css'
 
 interface InterfaceUseSelector extends InterfaceInitialState {
-  animesForDay: InterfaceAnimesForDay[];
+  getAnimesForDay: InterfaceAnimesForDay[];
 }
 
 export const SliderAnimesForDay: React.FC = () => {
   const DISPATCH = useDispatch()
   const GET_ANIME = (id: number) => DISPATCH(GET_ANIME_ACTIONS(id))
 
-  const { fetching, animesForDay }: InterfaceUseSelector = useSelector((state: RootState) => state.stateAnimesForDay)
+  const { fetching, getAnimesForDay }: InterfaceUseSelector = useSelector((state: RootState) => state.stateAnimesForDay)
 
   return (
     <SwiperStyle
-      preloadImages={ false }
+      preloadImages={ true }
       lazy={ true }
       loop={ true }
       breakpoints={ {
         320: {
-          slidesPerView: 3.5,
-          spaceBetween: 7
+          slidesPerView: 3,
+          spaceBetween: 8
         },
         480: {
-          slidesPerView: 5.5,
-          spaceBetween: 6
+          slidesPerView: 5,
+          spaceBetween: 7
         },
         640: {
-          slidesPerView: 7.5,
-          spaceBetween: 5
+          slidesPerView: 7,
+          spaceBetween: 6
         },
         860: {
-          slidesPerView: 9.5,
-          spaceBetween: 4
+          slidesPerView: 9,
+          spaceBetween: 5
         },
         1020: {
-          slidesPerView: 11.5,
-          spaceBetween: 3
+          slidesPerView: 11,
+          spaceBetween: 4
         }
       } }
     >
@@ -71,20 +69,19 @@ export const SliderAnimesForDay: React.FC = () => {
         </>
       ) : (
         <>
-          { animesForDay.map(({ mal_id, title, image_url }) => (
+          { getAnimesForDay.map(({ mal_id, title, image_url }) => (
             <SwiperSlide className="swiperSliderStyle"
               key={ v4() + mal_id }
               title={ title }
             >
-              <SwiperSliderLinkStyle
-                to={ `/anime/${mal_id}` }
-                onClick={ () => GET_ANIME(mal_id) }
-              >
-                <SwiperSliderImgStyle
-                  src={ image_url }
-                  alt={ title }
-                />
-              </SwiperSliderLinkStyle>
+              <Link href={ `/anime/${mal_id}` }>
+                <SwiperSliderLinkStyle onClick={ () => GET_ANIME(mal_id) }>
+                  <SwiperSliderImgStyle
+                    src={ image_url }
+                    alt={ title }
+                  />
+                </SwiperSliderLinkStyle>
+              </Link>
             </SwiperSlide>
           )) }
         </>
