@@ -1,0 +1,1 @@
+export { LayoutHome } from './home'
