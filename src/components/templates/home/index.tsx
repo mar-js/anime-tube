@@ -12,7 +12,7 @@ export const LayoutHome: React.FC = () => (
       'aside main'
       'footer footer'
     ` }
-    templateRows="auto 1fr auto"
+    templateRows="auto 700px auto"
     gridTemplateColumns="190px 1fr"
   >
     <Header />
