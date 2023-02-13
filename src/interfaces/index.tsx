@@ -1,5 +1,10 @@
 export type TLoading = 'loading' | 'ok' | 'fail'
 
+export interface ILink {
+  path: string;
+  text: string;
+}
+
 export interface IAnimesPopularModel {
   loading: TLoading;
   animes?: IAnimePopular[];
