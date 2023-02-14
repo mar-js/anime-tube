@@ -2,21 +2,24 @@ import { Grid } from '@chakra-ui/react'
 import {
   Aside,
   Header,
-  Footer
+  Footer,
+  Main
 } from 'components/organisms'
 
 export const LayoutHome: React.FC = () => (
   <Grid
     templateAreas={ `
-      'header header'
+      'aside header'
       'aside main'
       'footer footer'
     ` }
-    templateRows="auto 700px auto"
-    gridTemplateColumns="190px 1fr"
+    gridTemplateRows="auto 700px auto"
+    gridTemplateColumns="250px 1fr"
+    overflow="hidden"
   >
     <Header />
     <Aside />
+    <Main />
     <Footer />
   </Grid>
 )
