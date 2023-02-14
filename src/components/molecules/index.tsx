@@ -1,5 +1,4 @@
 export { AnimePopular } from './anime-popular'
-export { Slider } from './slider'
 export { Title } from './title'
 export { Links } from './links'
 export { Search } from './search'
