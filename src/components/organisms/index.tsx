@@ -1,3 +1,5 @@
 export { Header } from './header'
+export { Navigation } from './navigation'
 export { Aside } from './aside'
+export { Main } from './main'
 export { Footer } from './footer'
