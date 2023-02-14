@@ -14,8 +14,7 @@ export const LayoutHome: React.FC = () => (
       'footer footer'
     ` }
     gridTemplateRows="auto 700px auto"
-    gridTemplateColumns="250px 1fr"
-    overflow="hidden"
+    gridTemplateColumns="20% 80%"
   >
     <Header />
     <Aside />
