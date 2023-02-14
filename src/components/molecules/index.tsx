@@ -1,5 +1,7 @@
-export { AnimePopular } from './anime-popular'
+export { CardAnime } from './card-anime'
 export { Title } from './title'
 export { Links } from './links'
 export { Search } from './search'
 export { Top } from './top'
+export { Slider } from './slider'
+export { ContainerSlider } from './container-slider'
