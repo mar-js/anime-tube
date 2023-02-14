@@ -5,13 +5,13 @@ export interface ILink {
   text: string;
 }
 
-export interface IAnimesPopularModel {
+export interface IDataAnime {
   loading: TLoading;
-  animes?: IAnimePopular[];
+  animes?: IAnime[];
   error?: string | unknown;
 }
 
-export interface IAnimePopular {
+export interface IAnime {
   animeId: string;
   animeTitle: string;
   animeImg: string;
