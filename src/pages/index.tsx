@@ -6,9 +6,9 @@ import { getAnimesPopular } from 'apis'
 
 import { LayoutHome } from 'components/templates'
 
-import { IAnimePopular, IAnimesPopularModel } from 'interfaces'
+import { IAnime, IDataAnime } from 'interfaces'
 
-const Home: NextPage<IAnimesPopularModel> = (data) => (
+const Home: NextPage<IDataAnime> = (data) => (
   <AnimesPopularContext.Provider value={ data }>
     <LayoutHome />
   </AnimesPopularContext.Provider>
@@ -21,7 +21,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     return {
       props: {
         loading: 'ok',
-        animes: [ ...DATA as IAnimePopular[] ]
+        animes: [ ...DATA as IAnime[] ]
       }
     }
   } catch (e) {

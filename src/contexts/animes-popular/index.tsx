@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
 
-import { IAnimesPopularModel } from 'interfaces'
+import { IDataAnime } from 'interfaces'
 
-export const AnimesPopularContext = createContext({} as IAnimesPopularModel)
-export const useAnimesPopular = (): IAnimesPopularModel => useContext(AnimesPopularContext)
+export const AnimesPopularContext = createContext({} as IDataAnime)
+export const useAnimesPopular = (): IDataAnime => useContext(AnimesPopularContext)
