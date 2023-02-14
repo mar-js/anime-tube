@@ -21,6 +21,12 @@ export const Search: React.FC = () => (
       type="search"
       border="none"
       borderRadius={ 50 }
+      sx={ {
+        '&:focus-visible': {
+          border: 'none',
+          boxShadow: 'none'
+        }
+      } }
     />
   </InputGroup>
 )
