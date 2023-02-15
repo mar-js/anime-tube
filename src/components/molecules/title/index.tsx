@@ -3,15 +3,15 @@ import { Link } from 'components/atoms'
 
 export const Title: React.FC = () => (
   <Heading
-    h="90px"
     as="h1"
     size="lg"
     display="flex"
     justifyContent="center"
     alignItems="center"
+    py={ 5 }
+    px={ 2 }
     color="white"
     bgColor="purple.500"
-    borderBottomRightRadius={ 25 }
   >
     <Link
       path="/"

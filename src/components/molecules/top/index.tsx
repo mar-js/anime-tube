@@ -1,17 +1,19 @@
 import { Box } from '@chakra-ui/react'
+import { Links } from '../links'
 import { Search } from '../search'
 
 export const Top: React.FC = () => (
   <Box
     w="100%"
-    h="60%"
     display="flex"
     justifyContent="space-between"
     alignItems="center"
-    bgColor="purple.100"
-    pl={ 5 }
+    bgColor="purple.300"
+    py={ 2 }
+    px={ 12 }
     borderBottomRightRadius={ 50 }
   >
     <Search />
+    <Links />
   </Box>
 )
