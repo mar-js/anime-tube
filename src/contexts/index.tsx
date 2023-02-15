@@ -1,1 +1,1 @@
-export { AnimesPopularContext, useAnimesPopular } from './animes-popular'
+export { AnimeHomeContext, useAnimeHome } from './anime-home'
