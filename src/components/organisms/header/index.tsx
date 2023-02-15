@@ -1,16 +1,16 @@
-import { GridItem } from '@chakra-ui/react'
-import { Top } from 'components/molecules'
+import { Box } from '@chakra-ui/react'
+import { Title, Top } from 'components/molecules'
 
 export const Header: React.FC = () => (
-  <GridItem
-    h="90px"
+  <Box
     as="header"
-    area="header"
     display="flex"
     justifyContent="center"
     alignItems="center"
     pr={ 5 }
+    mb={ 5 }
   >
+    <Title />
     <Top />
-  </GridItem>
+  </Box>
 )
