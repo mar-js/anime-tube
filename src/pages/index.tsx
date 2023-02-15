@@ -1,34 +1,51 @@
 import { NextPage, GetServerSideProps } from 'next'
 
-import { AnimesPopularContext } from 'contexts'
+import { AnimeHomeContext } from 'contexts'
 
-import { getAnimesPopular } from 'apis'
+import {
+  getAnimePopular,
+  getAnimeMovies,
+  getNewEpisodes
+} from 'apis'
 
 import { LayoutHome } from 'components/templates'
 
-import { IAnime, IDataAnime } from 'interfaces'
+import { IAnimeApiHome } from 'interfaces'
 
-const Home: NextPage<IDataAnime> = (data) => (
-  <AnimesPopularContext.Provider value={ data }>
+const Home: NextPage<IAnimeApiHome> = (data) => (
+  <AnimeHomeContext.Provider value={ data }>
     <LayoutHome />
-  </AnimesPopularContext.Provider>
+  </AnimeHomeContext.Provider>
 )
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const DATA = await getAnimesPopular() as unknown
+    const DATA_ANIME_POPULAR = await getAnimePopular() as unknown
+    const DATA_ANIME_MOVIES = await getAnimeMovies() as unknown
+    const DATA_NEW_EPISODES = await getNewEpisodes() as unknown
 
     return {
       props: {
-        loading: 'ok',
-        animes: [ ...DATA as IAnime[] ]
+        newAnime: {
+          title: 'New Episodes',
+          animes: DATA_NEW_EPISODES
+        },
+        moviesAnime: {
+          title: 'Anime Movies',
+          animes: DATA_ANIME_MOVIES
+        },
+        animePopular: {
+          title: 'Anime Popular',
+          animes: DATA_ANIME_POPULAR
+        }
       }
     }
   } catch (e) {
     return {
       props: {
-        loading: 'fail',
-        error: e
+        newAnime: { error: e },
+        moviesAnime: { error: e },
+        animePopular: { error: e }
       }
     }
   }
