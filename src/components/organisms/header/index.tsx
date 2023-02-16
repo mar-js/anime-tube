@@ -3,11 +3,18 @@ import { Title, Top } from 'components/molecules'
 
 export const Header: React.FC = () => (
   <Box
+    w="100%"
     as="header"
-    display="flex"
+    display={ {
+      base: 'inline-block',
+      md: 'flex'
+    } }
     justifyContent="center"
     alignItems="center"
-    pr={ 5 }
+    pr={ {
+      base: 0,
+      md: 3
+    } }
     mb={ 5 }
   >
     <Title />

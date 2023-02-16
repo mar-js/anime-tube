@@ -7,8 +7,11 @@ import { Search2Icon } from '@chakra-ui/icons'
 
 export const Search: React.FC = () => (
   <InputGroup
-    w="250px"
     bgColor="white"
+    mb={ {
+      base: 5,
+      md: 0
+    } }
     borderRadius={ 50 }
   >
     <InputLeftAddon

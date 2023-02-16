@@ -4,7 +4,11 @@ import { Link } from 'components/atoms'
 export const Title: React.FC = () => (
   <Heading
     as="h1"
-    size="lg"
+    size={ {
+      base: 'sm',
+      md: 'md',
+      lg: 'lg'
+    } }
     display="flex"
     justifyContent="center"
     alignItems="center"

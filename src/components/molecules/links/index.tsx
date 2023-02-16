@@ -18,7 +18,7 @@ export const Links: React.FC = () => (
         key={ id }
         as="h6"
         size="sm"
-        ml={ 5 }
+        ml={ 3 }
         color="white"
       >
         <Link
