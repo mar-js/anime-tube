@@ -16,13 +16,16 @@ export const Slider: React.FC<IAnimeApi> = ({ animes }) => (
     } }
     navigation
     loop
-    spaceBetween={ 10 }
     breakpoints={ {
-      320: { slidesPerView: 1 },
-      400: { slidesPerView: 2 },
-      600: { slidesPerView: 3 },
-      900: { slidesPerView: 4 },
-      1000: { slidesPerView: 5 }
+      300: { slidesPerView: 1 },
+      350: { slidesPerView: 1.5 },
+      500: { slidesPerView: 2 },
+      650: { slidesPerView: 2.5 },
+      800: { slidesPerView: 3 },
+      900: { slidesPerView: 3.5 },
+      1100: { slidesPerView: 4 },
+      1300: { slidesPerView: 4.5 },
+      1500: { slidesPerView: 5 }
     } }
     modules={ [ Autoplay, Navigation ] }
     style={ {
