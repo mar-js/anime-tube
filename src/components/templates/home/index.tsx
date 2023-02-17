@@ -1,13 +1,3 @@
-import {
-  Header,
-  Footer,
-  Main
-} from 'components/organisms'
+import { Main } from 'components/organisms'
 
-export const LayoutHome: React.FC = () => (
-  <>
-    <Header />
-    <Main />
-    <Footer />
-  </>
-)
+export const LayoutHome: React.FC = () => <Main />
