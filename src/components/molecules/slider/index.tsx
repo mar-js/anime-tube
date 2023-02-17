@@ -1,14 +1,16 @@
+import Link from 'next/link'
+
 import { Autoplay, Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { CardAnime } from '../card-anime'
 
-import { IAnimeApi } from 'interfaces'
+import { IAnimes } from 'interfaces'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
 
-export const Slider: React.FC<IAnimeApi> = ({ animes }) => (
+export const Slider: React.FC<IAnimes> = ({ animes }) => (
   <Swiper
     autoplay={ {
       delay: 1500,
@@ -41,7 +43,9 @@ export const Slider: React.FC<IAnimeApi> = ({ animes }) => (
           alignItems: 'center'
         } }
       >
-        <CardAnime { ...anime } />
+        <Link href={ `anime/${anime.animeId}` }>
+          <CardAnime isHover { ...anime } />
+        </Link>
       </SwiperSlide>
     )) }
   </Swiper>
