@@ -1,4 +1,5 @@
 export { Header } from './header'
 export { Navigation } from './navigation'
 export { Main } from './main'
+export { Section } from './section'
 export { Footer } from './footer'
