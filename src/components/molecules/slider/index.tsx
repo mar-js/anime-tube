@@ -44,7 +44,7 @@ export const Slider: React.FC<IAnimes> = ({ animes }) => (
         } }
       >
         <Link href={ `anime/${anime.animeId}` }>
-          <CardAnime isHover { ...anime } />
+          <CardAnime { ...anime } />
         </Link>
       </SwiperSlide>
     )) }
