@@ -1,6 +1,17 @@
 export type TLoading = 'loading' | 'ok' | 'fail'
 export type TGenres = 'action' | 'adventure' | 'cars' | 'comedy' | 'crime' | 'dementia' | 'demons' | 'drama' | 'dub' | 'ecchi' | 'family' | 'fantasy' | 'game' | 'gourmet' | 'harem' | 'historical' | 'horror' | 'josei' | 'kids' | 'magic' | 'martial-arts' | 'mecha' | 'military' | 'Mmusic' | 'mystery' | 'parody' | 'police' | 'psychological' | 'romance' | 'samurai' | 'school' | 'sci-fi' | 'seinen' | 'shoujo' | 'shoujo-ai' | 'shounen' | 'shounen-ai' | 'slice-of-Life' | 'space' | 'sports' | 'super-power' | 'supernatural' | 'suspense' | 'thriller' | 'vampire' | 'yaoi' | 'yuri'
 
+export interface ISearch {
+  search: string;
+}
+
+export interface IAnimeSearch {
+  animeId: string;
+  animeTitle: string;
+  animeUrl: string;
+  animeImg: string;
+  status: string;
+}
 export interface ICardAnime {
   animeTitle: string;
   animeImg: string;
@@ -54,10 +65,10 @@ export interface IAnimeDetails {
   synopsis: string;
   animeImg: string;
   totalEpisodes: string;
-  episodesList: EpisodesList[];
+  episodesList: IEpisodesList[];
 }
 
-interface EpisodesList {
+interface IEpisodesList {
   episodeId: string;
   episodeNum: string;
   episodeUrl: string;
