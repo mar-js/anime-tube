@@ -1,3 +1,5 @@
 export { Copyright } from './copyright'
 export { Stars } from './stars'
 export { Link } from './link'
+export { Error } from './error'
+export { Progress } from './progress'
