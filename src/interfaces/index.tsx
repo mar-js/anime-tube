@@ -3,6 +3,11 @@ import { Dispatch, SetStateAction } from 'react'
 export type TLoading = 'loading' | 'ok' | 'fail'
 export type TGenres = 'action' | 'adventure' | 'cars' | 'comedy' | 'crime' | 'dementia' | 'demons' | 'drama' | 'dub' | 'ecchi' | 'family' | 'fantasy' | 'game' | 'gourmet' | 'harem' | 'historical' | 'horror' | 'josei' | 'kids' | 'magic' | 'martial-arts' | 'mecha' | 'military' | 'Mmusic' | 'mystery' | 'parody' | 'police' | 'psychological' | 'romance' | 'samurai' | 'school' | 'sci-fi' | 'seinen' | 'shoujo' | 'shoujo-ai' | 'shounen' | 'shounen-ai' | 'slice-of-Life' | 'space' | 'sports' | 'super-power' | 'supernatural' | 'suspense' | 'thriller' | 'vampire' | 'yaoi' | 'yuri'
 
+export interface IError {
+  title: string;
+  error: string | unknown;
+}
+
 export interface IAnimeApiSearch {
   result: IDataAnime | null;
   setResult: Dispatch<SetStateAction<IDataAnime | null>>
