@@ -1,4 +1,4 @@
-import { useAnimeHome } from 'contexts'
+import { useAnimeHome, useAnimeSearch } from 'contexts'
 
 import { Box } from '@chakra-ui/react'
 import { ContainerSlider } from 'components/molecules'
@@ -9,6 +9,7 @@ export const Main: React.FC = () => {
     moviesAnime,
     newAnime
   } = useAnimeHome()
+  const { result } = useAnimeSearch()
 
   return (
     <Box
@@ -16,6 +17,9 @@ export const Main: React.FC = () => {
       pt={ 5 }
       pl={ 5 }
     >
+      { result && (
+        <ContainerSlider { ...result } />
+      ) }
       <ContainerSlider { ...newAnime } />
       <ContainerSlider { ...animePopular } />
       <ContainerSlider { ...moviesAnime } />
