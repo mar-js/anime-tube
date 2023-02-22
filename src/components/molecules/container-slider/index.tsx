@@ -1,9 +1,15 @@
 import { Box, Heading } from '@chakra-ui/react'
 import { Slider } from '../slider'
+import { Error, Progress } from 'components/atoms'
 
-import { IContainerSlider } from 'interfaces'
+import { IDataAnime } from 'interfaces'
 
-export const ContainerSlider: React.FC<IContainerSlider> = ({ title, animes }) => (
+export const ContainerSlider: React.FC<IDataAnime> = ({
+  loading,
+  title,
+  animes,
+  error
+}) => (
   <Box w="100%" mb={ 10 }>
     <Heading
       as="h2"
@@ -13,6 +19,8 @@ export const ContainerSlider: React.FC<IContainerSlider> = ({ title, animes }) =
     >
       { title }:
     </Heading>
-    <Slider animes={ animes } />
+    { loading === 'loading' && <Progress /> }
+    { loading === 'ok' && <Slider animes={ animes } /> }
+    { loading === 'fail' && <Error title={ title } error={ error } /> }
   </Box>
 )
