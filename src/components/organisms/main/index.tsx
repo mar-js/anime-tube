@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { useAnimeHome, useAnimeSearch } from 'contexts'
 
 import { Box } from '@chakra-ui/react'
@@ -9,7 +11,18 @@ export const Main: React.FC = () => {
     moviesAnime,
     newAnime
   } = useAnimeHome()
-  const { result } = useAnimeSearch()
+  const { result, setResult } = useAnimeSearch()
+
+  useEffect(() => {
+    if (result && !result?.animes?.length) {
+      setResult({
+        title: 'Result',
+        loading: 'fail',
+        error: 'Not result'
+      })
+    }
+
+  }, [ result ])
 
   return (
     <Box
