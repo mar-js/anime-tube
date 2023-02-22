@@ -28,14 +28,17 @@ export const getServerSideProps: GetServerSideProps = async () => {
       props: {
         newAnime: {
           title: 'New Episodes',
+          loading: 'ok',
           animes: DATA_NEW_EPISODES
         },
         moviesAnime: {
           title: 'Anime Movies',
+          loading: 'ok',
           animes: DATA_ANIME_MOVIES
         },
         animePopular: {
           title: 'Anime Popular',
+          loading: 'ok',
           animes: DATA_ANIME_POPULAR
         }
       }
@@ -43,9 +46,18 @@ export const getServerSideProps: GetServerSideProps = async () => {
   } catch (e) {
     return {
       props: {
-        newAnime: { error: e },
-        moviesAnime: { error: e },
-        animePopular: { error: e }
+        newAnime: {
+          loading: 'fail',
+          error: e
+        },
+        moviesAnime: {
+          loading: 'fail',
+          error: e
+        },
+        animePopular: {
+          loading: 'fail',
+          error: e
+        }
       }
     }
   }
