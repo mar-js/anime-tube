@@ -1,4 +1,6 @@
-import { Box, Heading } from '@chakra-ui/react'
+import {
+  Box, Flex, Heading
+} from '@chakra-ui/react'
 import { Slider } from '../slider'
 import { Error, Progress } from 'components/atoms'
 
@@ -10,17 +12,43 @@ export const ContainerSlider: React.FC<IDataAnime> = ({
   animes,
   error
 }) => (
-  <Box w="100%" mb={ 10 }>
-    <Heading
-      as="h2"
-      size="md"
-      mb={ 3 }
-      color="gray.500"
+  <Flex
+    w="100%"
+    display="flex"
+    flexDir="column"
+    justifyContent="center"
+    alignItems="center"
+    my={ 10 }
+  >
+    <Box
+      w={ {
+        base: '100%',
+        md: '95%',
+        lg: '90%'
+      } }
+      px={ {
+        base: 2,
+        md: 4,
+        lg: 6
+      } }
     >
-      { title }:
-    </Heading>
-    { loading === 'loading' && <Progress /> }
-    { loading === 'ok' && <Slider animes={ animes } /> }
-    { loading === 'fail' && <Error title={ title } error={ error } /> }
-  </Box>
+      <Heading
+        as="h2"
+        size="lg"
+        mb={ 1 }
+        color="gray.500"
+      >
+        { title }:
+      </Heading>
+      <Box
+        w="100%"
+        h="4px"
+        mb={ 4 }
+        bgGradient="linear(to-r, #5e4dff, #e2d5ff)"
+      />
+      { loading === 'loading' && <Progress /> }
+      { loading === 'ok' && <Slider animes={ animes } /> }
+      { loading === 'fail' && <Error title={ title } error={ error } /> }
+    </Box>
+  </Flex>
 )
