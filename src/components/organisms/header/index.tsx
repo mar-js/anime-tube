@@ -15,7 +15,6 @@ export const Header: React.FC = () => (
       base: 0,
       md: 3
     } }
-    mb={ 5 }
   >
     <Title />
     <Top />
