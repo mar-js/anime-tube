@@ -22,7 +22,7 @@ export const Main: React.FC = () => {
       })
     }
 
-  }, [ result ])
+  }, [ result?.animes ])
 
   return (
     <Box as="main" pt={ 5 }>
