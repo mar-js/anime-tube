@@ -14,7 +14,7 @@ export const Main: React.FC = () => {
   const { result, setResult } = useAnimeSearch()
 
   useEffect(() => {
-    if (result && !result?.animes?.length) {
+    if ((result?.animes?.length as number) < 1) {
       setResult({
         title: 'Result',
         loading: 'fail',
