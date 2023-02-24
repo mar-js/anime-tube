@@ -31,7 +31,7 @@ export const Slider: React.FC<IAnimes> = ({ animes }) => (
     } }
     modules={ [ Autoplay, Navigation ] }
     style={ {
-      backgroundColor: '#71809622',
+      backgroundColor: '#6352ff0d',
       padding: '10px'
     } }
   >
