@@ -1,5 +1,7 @@
 import {
-  Box, Flex, Heading
+  Box,
+  Flex,
+  Heading
 } from '@chakra-ui/react'
 import { Slider } from '../slider'
 import { Error, Progress } from 'components/atoms'
