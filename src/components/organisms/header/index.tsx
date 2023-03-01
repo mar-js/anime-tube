@@ -1,5 +1,6 @@
 import { Box } from '@chakra-ui/react'
-import { Title, Top } from 'components/molecules'
+import { Title } from 'components/molecules'
+import { Navigation } from '../navigation'
 
 export const Header: React.FC = () => (
   <Box
@@ -17,6 +18,6 @@ export const Header: React.FC = () => (
     } }
   >
     <Title />
-    <Top />
+    <Navigation />
   </Box>
 )
