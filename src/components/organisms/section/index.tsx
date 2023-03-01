@@ -47,7 +47,7 @@ export const Section: React.FC = () => {
           w={ {
             base: '100%',
             md: '100%',
-            lg: '65%'
+            lg: '70%'
           } }
           mb={ {
             base: 6,
