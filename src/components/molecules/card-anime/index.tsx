@@ -15,7 +15,7 @@ export const CardAnime: React.FC<ICardAnime> = ({
     w={ isDetails ? {
       base: '100%',
       md: '50%',
-      lg: '35%'
+      lg: '30%'
     } : '200px' }
     h={ isDetails ? '400px' : '250px' }
     position="relative"
