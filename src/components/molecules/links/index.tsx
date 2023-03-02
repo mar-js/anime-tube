@@ -21,10 +21,7 @@ export const Links: React.FC = () => (
         ml={ 3 }
         color="white"
       >
-        <Link
-          path={ url }
-          text={ name }
-        />
+        <Link path={ url }>{ name }</Link>
       </Heading>
     )) }
   </Box>

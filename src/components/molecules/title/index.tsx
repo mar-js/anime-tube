@@ -17,9 +17,6 @@ export const Title: React.FC = () => (
     color="white"
     bgColor="purple.500"
   >
-    <Link
-      path="/"
-      text="AnimeTube"
-    />
+    <Link path="/">AnimeTube</Link>
   </Heading>
 )

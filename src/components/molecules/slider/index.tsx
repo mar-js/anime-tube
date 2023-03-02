@@ -1,9 +1,8 @@
-import Link from 'next/link'
-
 import { Autoplay, Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { CardAnime } from '../card-anime'
+import { Link } from 'components/atoms'
 
 import { IAnimes } from 'interfaces'
 
@@ -43,7 +42,7 @@ export const Slider: React.FC<IAnimes> = ({ animes }) => (
           alignItems: 'center'
         } }
       >
-        <Link href={ `anime/${anime.animeId}` }>
+        <Link path={ `anime/${anime.animeId}` }>
           <CardAnime { ...anime } />
         </Link>
       </SwiperSlide>
