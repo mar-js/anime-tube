@@ -18,6 +18,7 @@ export const CardAnime: React.FC<ICardAnime> = ({
       lg: '30%'
     } : '200px' }
     h={ isDetails ? '400px' : '250px' }
+    m="auto"
     position="relative"
     boxShadow={ isDetails ? 'none' : '5px 5px 10px #858585' }
     sx={ { '&:hover': { boxShadow: isDetails ? 'none' : '5px 5px 15px #3f3f3f' } } }
