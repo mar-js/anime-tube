@@ -28,7 +28,8 @@ export const Navigation: React.FC = () => {
         md: 3,
         lg: 2
       } }
-      px={ {
+      pl={ 3 }
+      pr={ {
         base: 3,
         md: 6,
         lg: 12
