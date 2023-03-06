@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { useAnimeDetails } from 'contexts'
 
 import {
@@ -7,13 +9,19 @@ import {
   UnorderedList,
   Stack,
   Text,
-  Link
+  Link,
+  Button
 } from '@chakra-ui/react'
-import { ExternalLinkIcon } from '@chakra-ui/icons'
+import {
+  ExternalLinkIcon,
+  TriangleDownIcon,
+  TriangleUpIcon
+} from '@chakra-ui/icons'
 import { CardAnime } from 'components/molecules'
 import { Section } from 'components/organisms'
 
 export const LayoutAnime: React.FC = () => {
+  const [ orderAsc, setOrderAsc ] = useState<boolean>(false)
   const {
     details: {
       animeImg,
@@ -22,6 +30,8 @@ export const LayoutAnime: React.FC = () => {
       episodesList
     }
   } = useAnimeDetails()
+
+  const handleChangeOrderList = () => setOrderAsc(!orderAsc)
 
   return (
     <Section>
@@ -64,10 +74,27 @@ export const LayoutAnime: React.FC = () => {
           >{ synopsis || 'This is a movie, there is no description so as not to spoil' }</Text>
         </Stack>
       </Flex>
+      <Button
+        w="100%"
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        my={ 10 }
+        mx="auto"
+        colorScheme="cyan"
+        color="white"
+        lineHeight="normal"
+        onClick={ handleChangeOrderList }
+      >
+        Order List:  { orderAsc ? <TriangleDownIcon /> : <TriangleUpIcon /> }
+      </Button>
       { episodesList.length > 0 && (
         <UnorderedList
-          my={ 10 }
+          mb={ 10 }
+          ml={ 0 }
           listStyleType="none"
+          display="flex"
+          flexDir={ orderAsc ? 'column-reverse' : 'column' }
         >
           { episodesList.map(({
             episodeId,
