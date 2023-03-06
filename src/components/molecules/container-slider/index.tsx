@@ -4,7 +4,11 @@ import {
   Heading
 } from '@chakra-ui/react'
 import { Slider } from '../slider'
-import { Error, Progress } from 'components/atoms'
+import {
+  Error,
+  Link,
+  Progress
+} from 'components/atoms'
 
 import { IDataAnime } from 'interfaces'
 
@@ -34,14 +38,16 @@ export const ContainerSlider: React.FC<IDataAnime> = ({
         lg: 6
       } }
     >
-      <Heading
-        as="h2"
-        size="lg"
-        mb={ 1 }
-        color="gray.500"
-      >
-        { title }:
-      </Heading>
+      <Link path={ title.url }>
+        <Heading
+          as="h2"
+          size="lg"
+          mb={ 1 }
+          color="gray.500"
+        >
+          { title.text }:
+        </Heading>
+      </Link>
       <Box
         w="100%"
         h="4px"
@@ -50,7 +56,7 @@ export const ContainerSlider: React.FC<IDataAnime> = ({
       />
       { loading === 'loading' && <Progress /> }
       { loading === 'ok' && <Slider animes={ animes } /> }
-      { loading === 'fail' && <Error title={ title } error={ error } /> }
+      { loading === 'fail' && <Error title={ title.text } error={ error } /> }
     </Box>
   </Flex>
 )
