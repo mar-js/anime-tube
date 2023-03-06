@@ -46,7 +46,10 @@ export interface IAnimeApiHome {
 export interface IDataAnime extends IAnimes {
   loading: TLoading;
   error?: string | unknown;
-  title: string;
+  title: {
+    url: string;
+    text: string;
+  };
 }
 
 export interface IAnimeApi {
