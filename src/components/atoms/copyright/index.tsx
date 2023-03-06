@@ -5,7 +5,8 @@ export const Copyright: React.FC = () => (
     as="h6"
     size="sm"
     color="white"
+    mb={ 2 }
   >
-    Proudly made in 🇦🇷 by Yo
+    Proudly made in 🇦🇷
   </Heading>
 )
