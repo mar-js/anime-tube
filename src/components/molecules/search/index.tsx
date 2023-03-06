@@ -4,7 +4,7 @@ import { useAnimeSearch } from 'contexts'
 
 import { getAnimeSearch } from 'apis'
 
-import { getValueForm } from 'helpers'
+import { formatterValueSearchToUrl, getValueForm } from 'helpers'
 
 import {
   Input,
@@ -22,9 +22,13 @@ export const Search: React.FC = () => {
     e.preventDefault()
 
     const VALUE = getValueForm(e)
+    const URL = formatterValueSearchToUrl(VALUE)
 
     setResult({
-      title: 'Results',
+      title: {
+        text: 'Results',
+        url: 'results'
+      },
       loading: 'loading'
     })
 
@@ -32,13 +36,19 @@ export const Search: React.FC = () => {
       const RESULT = await getAnimeSearch(VALUE)
 
       setResult({
-        title: 'Results',
+        title: {
+          text: 'Results',
+          url: `results/${URL}`
+        },
         loading: 'ok',
         animes: RESULT as IAnimeApi[]
       })
     } catch (error) {
       setResult({
-        title: 'Results',
+        title: {
+          text: 'Results',
+          url: 'results'
+        },
         loading: 'fail',
         error
       })
