@@ -1,8 +1,8 @@
 import { IAnimeApi } from 'interfaces'
 
-export const getAnimeSearch = async (search: string): Promise<IAnimeApi[] | unknown> => {
+export const getAnimeSearch = async (search: string, page = 1): Promise<IAnimeApi[] | unknown> => {
   try {
-    const RESPONSE = await fetch(`https://gogoanime.consumet.stream/search?keyw=${search}`)
+    const RESPONSE = await fetch(`https://gogoanime.consumet.stream/search?page=${page}&keyw=${search}`)
     const DATA: IAnimeApi[] = await RESPONSE.json()
 
     return DATA
