@@ -27,17 +27,26 @@ export const getServerSideProps: GetServerSideProps = async () => {
     return {
       props: {
         newAnime: {
-          title: 'New Episodes',
+          title: {
+            text: 'New Episodes',
+            url: 'new-episodes'
+          },
           loading: 'ok',
           animes: DATA_NEW_EPISODES
         },
         moviesAnime: {
-          title: 'Anime Movies',
+          title: {
+            text: 'Anime Movies',
+            url: 'anime-movies'
+          },
           loading: 'ok',
           animes: DATA_ANIME_MOVIES
         },
         animePopular: {
-          title: 'Anime Popular',
+          title: {
+            text: 'Anime Popular',
+            url: 'anime-popular'
+          },
           loading: 'ok',
           animes: DATA_ANIME_POPULAR
         }
