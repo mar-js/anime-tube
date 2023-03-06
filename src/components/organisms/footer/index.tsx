@@ -8,7 +8,7 @@ export const Footer: React.FC = () => (
     bgColor="purple.300"
     textAlign="center"
   >
-    <Copyright />
     <Stars />
+    <Copyright />
   </Box>
 )
