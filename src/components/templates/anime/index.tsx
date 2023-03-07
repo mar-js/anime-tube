@@ -42,6 +42,7 @@ export const LayoutAnime: React.FC = () => {
           md: 'column-reverse',
           lg: 'row'
         } }
+        mb={ 10 }
       >
         <CardAnime
           isDetails
@@ -74,20 +75,22 @@ export const LayoutAnime: React.FC = () => {
           >{ synopsis || 'This is a movie, there is no description so as not to spoil' }</Text>
         </Stack>
       </Flex>
-      <Button
-        w="100%"
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        my={ 10 }
-        mx="auto"
-        colorScheme="cyan"
-        color="white"
-        lineHeight="normal"
-        onClick={ handleChangeOrderList }
-      >
+      { episodesList.length > 1 && (
+        <Button
+          w="100%"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          mb={ 10 }
+          mx="auto"
+          colorScheme="cyan"
+          color="white"
+          lineHeight="normal"
+          onClick={ handleChangeOrderList }
+        >
         Order List:  { orderAsc ? <TriangleDownIcon /> : <TriangleUpIcon /> }
-      </Button>
+        </Button>
+      ) }
       { episodesList.length > 0 && (
         <UnorderedList
           mb={ 10 }
