@@ -18,12 +18,12 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const { id } = params as { id: string }
 
   try {
-    const DATA_NEW_EPISODES = await getAnimeSearch(id) as unknown
+    const DATA_RESULTS = await getAnimeSearch(id) as unknown
 
     return {
       props: {
         loading: 'ok',
-        animes: DATA_NEW_EPISODES
+        animes: DATA_RESULTS
       }
     }
   } catch (e) {
