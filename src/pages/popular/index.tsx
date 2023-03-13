@@ -2,13 +2,13 @@ import { NextPage, GetServerSideProps } from 'next'
 
 import { NavigationAnimesContext } from 'contexts'
 
-import { getAnimePopular } from 'apis'
+import { getAnime } from 'apis'
 
 import { LayoutNavigationAnimes } from 'components/templates'
 
 import { IDataAnime } from 'interfaces'
 
-const AnimePopular: NextPage<IDataAnime> = (data) => (
+const Popular: NextPage<IDataAnime> = (data) => (
   <NavigationAnimesContext.Provider value={ data }>
     <LayoutNavigationAnimes />
   </NavigationAnimesContext.Provider>
@@ -16,12 +16,12 @@ const AnimePopular: NextPage<IDataAnime> = (data) => (
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const DATA_NEW_EPISODES = await getAnimePopular() as unknown
+    const DATA_ANIME_POPULAR = await getAnime({ slug: '/popular' }) as unknown
 
     return {
       props: {
         loading: 'ok',
-        animes: DATA_NEW_EPISODES
+        animes: DATA_ANIME_POPULAR
       }
     }
   } catch (e) {
@@ -34,4 +34,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 }
 
-export default AnimePopular
+export default Popular
