@@ -2,7 +2,7 @@ import { NextPage, GetServerSideProps } from 'next'
 
 import { NavigationAnimesContext } from 'contexts'
 
-import { getAnimeMovies } from 'apis'
+import { getAnime } from 'apis'
 
 import { LayoutNavigationAnimes } from 'components/templates'
 
@@ -16,7 +16,7 @@ const AnimeMovies: NextPage<IDataAnime> = (data) => (
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const DATA_ANIME_MOVIES = await getAnimeMovies() as unknown
+    const DATA_ANIME_MOVIES = await getAnime({ slug: '/anime-movies' }) as unknown
 
     return {
       props: {

@@ -2,11 +2,7 @@ import { NextPage, GetServerSideProps } from 'next'
 
 import { AnimeHomeContext } from 'contexts'
 
-import {
-  getAnimePopular,
-  getAnimeMovies,
-  getNewEpisodes
-} from 'apis'
+import { getAnime } from 'apis'
 
 import { LayoutHome } from 'components/templates'
 
@@ -20,16 +16,16 @@ const Home: NextPage<IAnimeApiHome> = (data) => (
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const DATA_ANIME_POPULAR = await getAnimePopular() as unknown
-    const DATA_ANIME_MOVIES = await getAnimeMovies() as unknown
-    const DATA_NEW_EPISODES = await getNewEpisodes() as unknown
+    const DATA_ANIME_POPULAR = await getAnime({ slug: '/popular' }) as unknown
+    const DATA_ANIME_MOVIES = await getAnime({ slug: '/anime-movies' }) as unknown
+    const DATA_NEW_EPISODES = await getAnime({ slug: '/recent-release' }) as unknown
 
     return {
       props: {
         newAnime: {
           title: {
             text: 'New Episodes',
-            url: 'new-episodes'
+            url: 'recent-release'
           },
           loading: 'ok',
           animes: DATA_NEW_EPISODES
@@ -45,7 +41,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
         animePopular: {
           title: {
             text: 'Anime Popular',
-            url: 'anime-popular'
+            url: 'popular'
           },
           loading: 'ok',
           animes: DATA_ANIME_POPULAR
