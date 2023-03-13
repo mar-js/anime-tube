@@ -1,5 +1,3 @@
-export { getAnimePopular } from './get-anime-popular'
-export { getNewEpisodes } from './get-new-episodes'
-export { getAnimeMovies } from './get-anime-movies'
+export { getAnime } from './get-anime'
 export { getAnimeDetails } from './get-anime-details'
 export { getAnimeSearch } from './get-anime-search'
