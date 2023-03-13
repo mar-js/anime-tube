@@ -2,13 +2,13 @@ import { NextPage, GetServerSideProps } from 'next'
 
 import { NavigationAnimesContext } from 'contexts'
 
-import { getNewEpisodes } from 'apis'
+import { getAnime } from 'apis'
 
 import { LayoutNavigationAnimes } from 'components/templates'
 
 import { IDataAnime } from 'interfaces'
 
-const NewEpisodes: NextPage<IDataAnime> = (data) => (
+const RecentRelease: NextPage<IDataAnime> = (data) => (
   <NavigationAnimesContext.Provider value={ data }>
     <LayoutNavigationAnimes />
   </NavigationAnimesContext.Provider>
@@ -16,7 +16,7 @@ const NewEpisodes: NextPage<IDataAnime> = (data) => (
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const DATA_NEW_EPISODES = await getNewEpisodes() as unknown
+    const DATA_NEW_EPISODES = await getAnime({ slug: '/recent-release' }) as unknown
 
     return {
       props: {
@@ -34,4 +34,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 }
 
-export default NewEpisodes
+export default RecentRelease
