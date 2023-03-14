@@ -7,8 +7,10 @@ export const getAnime = async ({
 }: IGetAnimeAPI): Promise<IAnimeApi[] | unknown> => {
   try {
     const ANIME_ID = animeId ? `/${animeId}?` : '?'
-    const RESPONSE = await fetch(`https://gogoanime.consumet.stream${slug}${ANIME_ID}page=${page}`)
-    const DATA: IAnimeApi[] = await RESPONSE.json()
+    const RESPONSE = slug === '/search' ?
+      await fetch(`https://gogoanime.consumet.stream${slug}?keyw=${animeId}&page=${page}`) :
+      await fetch(`https://gogoanime.consumet.stream${slug}${ANIME_ID}page=${page}`)
+    const DATA: IAnimeApi[] | [] = await RESPONSE.json()
 
     return DATA
   } catch (e) {
