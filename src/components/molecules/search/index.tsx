@@ -2,7 +2,7 @@ import { FormEvent } from 'react'
 
 import { useAnimeSearch } from 'contexts'
 
-import { getAnimeSearch } from 'apis'
+import { getAnime } from 'apis'
 
 import { formatterValueSearchToUrl, getValueForm } from 'helpers'
 
@@ -27,18 +27,21 @@ export const Search: React.FC = () => {
     setResult({
       title: {
         text: 'Results',
-        url: 'results'
+        url: 'search'
       },
       loading: 'loading'
     })
 
     try {
-      const RESULT = await getAnimeSearch(VALUE)
+      const RESULT = await getAnime({
+        slug: '/search',
+        animeId: VALUE
+      })
 
       setResult({
         title: {
           text: 'Results',
-          url: `results/${URL}`
+          url: `search/${URL}`
         },
         loading: 'ok',
         animes: RESULT as IAnimeApi[]
@@ -47,7 +50,7 @@ export const Search: React.FC = () => {
       setResult({
         title: {
           text: 'Results',
-          url: 'results'
+          url: 'search'
         },
         loading: 'fail',
         error
