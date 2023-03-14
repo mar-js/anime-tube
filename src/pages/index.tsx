@@ -16,9 +16,9 @@ const Home: NextPage<IAnimeApiHome> = (data) => (
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const DATA_ANIME_POPULAR = await getAnime({ slug: '/popular' }) as unknown
-    const DATA_ANIME_MOVIES = await getAnime({ slug: '/anime-movies' }) as unknown
-    const DATA_NEW_EPISODES = await getAnime({ slug: '/recent-release' }) as unknown
+    const DATA_ANIME_POPULAR = await getAnime({ slug: '/popular' })
+    const DATA_ANIME_MOVIES = await getAnime({ slug: '/anime-movies' })
+    const DATA_NEW_EPISODES = await getAnime({ slug: '/recent-release' })
 
     return {
       props: {

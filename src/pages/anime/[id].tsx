@@ -17,7 +17,7 @@ const Anime: NextPage<IAnimeApiDetails> = (data) => (
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   try {
     const { id } = params as { id: string }
-    const DATA_ANIME_DETAILS = await getAnimeDetails(id) as unknown
+    const DATA_ANIME_DETAILS = await getAnimeDetails(id)
 
     return { props: { details: { ...DATA_ANIME_DETAILS as IAnimeDetails } } }
   } catch (e) {

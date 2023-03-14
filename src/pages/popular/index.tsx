@@ -16,7 +16,7 @@ const Popular: NextPage<IDataAnime> = (data) => (
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const DATA_ANIME_POPULAR = await getAnime({ slug: '/popular' }) as unknown
+    const DATA_ANIME_POPULAR = await getAnime({ slug: '/popular' })
 
     return {
       props: {

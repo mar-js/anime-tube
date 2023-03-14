@@ -16,7 +16,7 @@ const AnimeMovies: NextPage<IDataAnime> = (data) => (
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const DATA_ANIME_MOVIES = await getAnime({ slug: '/anime-movies' }) as unknown
+    const DATA_ANIME_MOVIES = await getAnime({ slug: '/anime-movies' })
 
     return {
       props: {
