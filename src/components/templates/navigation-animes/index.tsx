@@ -16,7 +16,7 @@ import {
 } from '@chakra-ui/react'
 
 export const LayoutNavigationAnimes: React.FC = () => {
-  const { pathname } = useRouter()
+  const { pathname, query } = useRouter()
   const { animes } = useNavigationAnimes()
   const {
     items,
@@ -24,7 +24,8 @@ export const LayoutNavigationAnimes: React.FC = () => {
     hasMore
   } = useInfiniteScroll({
     animes,
-    slug: pathname
+    slug: pathname.search('/search') === 0 ? '/search' : pathname,
+    search: query
   })
 
   return (
@@ -41,11 +42,34 @@ export const LayoutNavigationAnimes: React.FC = () => {
             </Link>
           </GridItem>
         )) }
-        { loading && <Spinner color="purple.500" size="xl" /> }
-        { !hasMore && (
-          <Alert status="info">
+        { hasMore ? (
+          <GridItem
+            w="100%"
+            h="auto"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            { loading && (
+              <Spinner
+                size="xl"
+                thickness="5px"
+                color="purple.500"
+              />
+            ) }
+          </GridItem>
+        ) : (
+          <Alert
+            w={ {
+              base: '100%',
+              md: '200px',
+              lg: '200px'
+            } }
+            status="info"
+            mx="auto"
+          >
             <AlertIcon />
-            Not more Animes.
+              Not more Animes.
           </Alert>
         ) }
       </Grid>
